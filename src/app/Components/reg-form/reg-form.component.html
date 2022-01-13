@@ -1,0 +1,229 @@
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-sm-9">
+
+            <mat-card>
+                <form [formGroup]="regForm">
+                    <div class="row">
+                        <mat-card-title>Registration </mat-card-title>
+                        <div class="flex">
+                            <mat-form-field appearance="outline">
+                                <!-- <mat-label>First Name</mat-label> -->
+                                <input matInput placeholder="First Name" formControlName="firstName">
+                                <mat-icon matPrefix>east</mat-icon>
+                                <mat-error *ngIf="fieldName('firstName')">
+                                    <span *ngIf="field.firstName.errors?.required">First name cannot be empty</span>
+                                    <span *ngIf="field.firstName.errors?.minlength">First Name should be 3 charecters
+                                        atleast</span>
+                                    <span *ngIf="field.firstName.errors?.maxlength">First Name should be maximum of 25
+                                        charecters</span>
+                                </mat-error>
+
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <!-- <mat-label>Last Name</mat-label> -->
+                                <input matInput placeholder="Last Name" formControlName="lastName">
+                                <mat-icon matPrefix>east</mat-icon>
+                                <mat-error *ngIf="fieldName('lastName')">
+                                    <span *ngIf="field.lastName.errors?.required">Last name cannot be empty</span>
+                                    <span *ngIf="field.lastName.errors?.minlength">Last Name should be 3 charecters
+                                        atleast</span>
+                                    <span *ngIf="field.lastName.errors?.maxlength">Last Name should be maximum of 25
+                                        charecters</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- Father Name and Mother Name -->
+
+                    <div class="row">
+                        <div class="flex">
+                            <mat-form-field appearance="outline">
+                                <!-- <mat-label>Father Name</mat-label> -->
+                                <input matInput placeholder="Father Name" formControlName="fatherName">
+                                <mat-icon matPrefix>east</mat-icon>
+                                <mat-error *ngIf="fieldName('fatherName')">
+                                    <span *ngIf="field.lastName.errors?.required">Father name cannot be empty</span>
+                                    <span *ngIf="field.lastName.errors?.minlength">Father Name should be 3 charecters
+                                        atleast</span>
+                                    <span *ngIf="field.lastName.errors?.maxlength">Father Name should be maximum of 25
+                                        charecters</span>
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <!-- <mat-label>Mother Name</mat-label> -->
+                                <input matInput placeholder="Mother Name" formControlName="motherName">
+                                <mat-icon matPrefix>east</mat-icon>
+                                <mat-error *ngIf="fieldName('motherName')">
+                                    <span *ngIf="field.lastName.errors?.required">Mother name cannot be empty</span>
+                                    <span *ngIf="field.lastName.errors?.minlength">Mother Name should be 3 charecters
+                                        atleast</span>
+                                    <span *ngIf="field.lastName.errors?.maxlength">Mother Name should be maximum of 25
+                                        charecters</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- Gender and some DOB -->
+
+                    <div class="row">
+                        <div class="flex">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Gender</mat-label>
+                                <mat-select>
+                                    <mat-option *ngFor="let one of gender" [value]="one.value">
+                                        {{one.value}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field class="dateToTheRight" appearance="outline">
+                                <mat-label>Date of Birth</mat-label>
+                                <input matInput placeholder="DDMMYYYY">
+                                <mat-icon matSuffix>event</mat-icon>
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+
+                    <!-- Class -->
+
+                    <div class="row">
+                        <div class="flex">
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Applying for class</mat-label>
+                                <mat-select formControlName="classApply">
+                                    <mat-option *ngFor="let class of classes" [value]="class.value">
+                                        {{class.value}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="flex">
+
+                            <mat-form-field appearance="outline">
+                                <!-- <mat-label>Username</mat-label> -->
+                                <input matInput placeholder="Username" formControlName="userName">
+                                <mat-icon matPrefix>east</mat-icon>
+                                <!-- <mat-hint
+                                    *ngIf="regForm.controls['userName'].invalid && (regForm.controls['userName'].dirty || regForm.controls['userName'].touched)"
+                                    class="redText">
+                                    *This Field is required
+                                </mat-hint> -->
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <!-- <mat-label>Username</mat-label> -->
+                                <input matInput placeholder="Password" formControlName="password">
+                                <mat-icon matPrefix>east</mat-icon>
+                                <mat-error *ngIf="fieldName('password')">
+                                    <span *ngIf="field.password.errors?.required">Password cannot be empty</span>
+                                    <span *ngIf="field.password.errors?.minlength">Password should be 3 charecters
+                                        atleast</span>
+                                    <span *ngIf="field.lastName.errors?.maxlength">Password should be maximum of 25
+                                        charecters</span>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <!-- ConfirmPassword -->
+                            <mat-form-field appearance="outline">
+                                <!-- <mat-label>Username</mat-label> -->
+                                <input matInput placeholder="Confirm Password" formControlName="cnfPassword">
+                                <mat-icon matPrefix>east</mat-icon>
+                                <mat-error *ngIf="fieldName('cnfPassword')">
+                                    <span *ngIf="field.cnfPassword.errors?.required">This field cannot be empty</span>
+                                    <!-- <span *ngIf="field.cnfPassword.errors?.cnfPassword">Passwords should match</span> -->
+                                    <!-- <span
+                                        *ngIf="regForm.controls['cnfPassword'].value != regForm.controls['password'].value">Passwords
+                                        must match</span> -->
+                                </mat-error>
+
+                            </mat-form-field>
+
+                            <!--<div class="alert" *ngIf="regForm.controls['cnfPassword'].value != regForm.controls['password'].value">
+                                Password must be match
+                            </div>-->
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="flex">
+                            <mat-checkbox class="example-margin">Opt-in For Transport</mat-checkbox>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+
+                    <div class="row">
+                        <div class="form-control topMargin text-center">
+                            <mat-card-subtitle>Address</mat-card-subtitle>
+
+                            <div class="flex">
+
+                                <mat-form-field appearance="outline">
+                                    <!-- <mat-label>Steet Name</mat-label> -->
+                                    <input matInput placeholder="Street/Plot Name" formControlName="streetName">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <!-- <mat-label>Locality</mat-label> -->
+                                    <input matInput placeholder="Locality/Area" formControlName="locality">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <!-- <mat-label>Landmark</mat-label> -->
+                                    <input matInput placeholder="Landmark" formControlName="landmark">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="row">
+                                <div class="flex">
+                                    <mat-form-field appearance="outline">
+                                        <!-- <mat-label>City/Village</mat-label> -->
+                                        <input matInput placeholder="City/Village" formControlName="city">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <!-- <mat-label>State</mat-label> -->
+                                        <input matInput placeholder="State" formControlName="state">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <!-- <mat-label>PIN</mat-label> -->
+                                        <input matInput placeholder="PIN" formControlName="pincode">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="flex">
+                            <mat-checkbox (click)="terms()" class="example-margin topMargin" formControlName="tAndc">Agree to T&C
+                                <br>
+                                <mat-hint *ngIf="show"
+                                    class="redText">
+                                    *You must agree to Terms and Conditions
+                                </mat-hint>
+                            </mat-checkbox>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-1 offset-5">
+                            <button mat-raised-button color="accent" class="leftMarginButton submitbutton topMargin"
+                                (click)="saveData()" [disabled]="!regForm.valid">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

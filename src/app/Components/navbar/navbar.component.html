@@ -1,0 +1,16 @@
+<mat-toolbar color = "primary">
+    <span>Alphabet</span>
+    <span class="spacer"></span>
+    <button class="btnMargin" mat-button  routerLink=""> Home</button>
+    <button class="btnMargin" mat-button  routerLink="gallery">Gallery</button>
+    <button class="btnMargin" mat-button  routerLink="branches">Branches</button>
+    <button class="btnMargin" mat-button  routerLink="viewprofile">View Profile</button>
+    <button class="btnMargin" mat-button  routerLink="parentsCorner">Parents Corner</button>
+    <button class="btnMargin" mat-button  routerLink="schedules">Time tables</button>
+    <button class="btnMargin" mat-button   routerLink="login" *ngIf = "!isLoggedIn()">Login</button>
+    <button class="btnMargin" mat-button  (click)="logout()" *ngIf = "isLoggedIn()">Logout</button>
+
+</mat-toolbar>
+
+
+

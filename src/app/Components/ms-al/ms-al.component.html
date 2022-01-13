@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-4 offset-4">
+        <div class="row">
+            <p *ngIf="!isLoggedIn">Please Login</p>
+            <p *ngIf="isLoggedIn">Hello there</p>
+        </div>
+        
+        <div class="row">
+            <button mat-raised-button color="primary" (click)="login()" *ngIf="!isLoggedIn">Login</button>
+        <button mat-raised-button color="primary" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+        </div>
+        
+    </div>
+</div>

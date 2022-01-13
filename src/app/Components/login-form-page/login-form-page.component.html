@@ -1,0 +1,55 @@
+<div class="row center topMargin">
+    <!-- <h3 *ngIf = "wrongUsername" class="text-center text-danger">Invalid Username</h3>
+    <h3 *ngIf = "wrongPassword" class="text-center text-danger">Invalid Password</h3> -->
+    <div class="col-4 text-center">
+        <mat-card class="center">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <mat-form-field appearance="outline" class="displayBlock">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Username" formControlName="username">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="displayBlock">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <mat-icon matSuffix>password</mat-icon>
+                </mat-form-field>
+
+                <mat-checkbox class="displayBlock" formControlName="checkbox">Remember me</mat-checkbox>
+            </form>
+            <div class="row center">
+                <button mat-raised-button class="displayBlock btnsize btnClr" (click)="onLogin()" type="submit">
+                    <mat-icon matSuffix>login</mat-icon> Login
+                </button>
+                <button mat-raised-button color="warn" class="displayBlock btnsize leftMarginButton"
+                    routerLink="/register">
+                    <mat-icon matSuffix>add</mat-icon>Register
+                </button>
+            </div>
+
+        </mat-card>
+    </div>
+    <div class="text-center">
+        <h3 style="font-weight: 600; margin: 0.5rem;">OR</h3>
+    </div>
+    <div class="col-4 text-center">
+        <mat-card class="center text-center">
+
+            <h4 style="font-weight: 600;">Login with Microsoft</h4>
+            <div class="row offset-4">
+                <div class="col-8">
+                    <button mat-raised-button class="displayBlock btnsize btnClr" (click)="login()" *ngIf = "!isLoggedIn()">
+                        <mat-icon matSuffix>login</mat-icon> Login
+                    </button>
+                </div>
+                <div class="col-8">
+                    <button mat-raised-button class="displayBlock btnsize btnClr" (click)="logout()" *ngIf = "isLoggedIn()">
+                        <mat-icon matSuffix>logout</mat-icon> Logout
+                    </button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+
+</div>

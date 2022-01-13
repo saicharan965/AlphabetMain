@@ -1,0 +1,9 @@
+<div *ngIf = "!isLoggedIn()">
+    <h3>Please Login to view your profile</h3>
+   
+    </div>
+
+<div *ngIf = "isLoggedIn()">
+<h3>You can now view your profile because you are now logged in...</h3>
+<button mat-raised-button color ="accent" (click)="showProfile()">View Profile</button>
+</div>

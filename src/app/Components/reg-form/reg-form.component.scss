@@ -1,0 +1,36 @@
+mat-card{
+    margin-top: 5rem;
+}
+
+.flex{
+    display: flex;
+}
+mat-form-field,mat-checkbox{
+    padding: 0.5rem;
+    margin-left: 2rem;
+}
+mat-icon{
+    margin-right: 1rem;
+}
+
+.ddmmyy{
+    width: 5rem;
+    margin-left: 0;
+}
+.toTheRight{
+margin-left: 2rem;
+}
+
+
+.topMargin{
+    margin-top: 2rem;
+
+}
+
+.redText{
+    color:red;
+}
+
+// .submitbutton:hover{
+//     cursor: not-allowed;
+// }
